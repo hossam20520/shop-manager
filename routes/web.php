@@ -21,7 +21,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/products', 'productController@index');
 
+Route::get('/search', 'productController@search')->name("search.search");
+
 Route::get('/products/add', 'productController@add');
+
+Route::get('/products/sold', 'productController@soldview');
+
+Route::get('/products/info', 'productController@getInfo');
 
 
 Route::post('/productadd', 'productController@create');
+
+Route::post('/sell', 'productController@sell')->name("sell.sell");

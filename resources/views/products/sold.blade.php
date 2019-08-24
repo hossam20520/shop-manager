@@ -2,10 +2,19 @@
 
 @section('content')
 <div class="container">
+ 
+    <div class="form-group">
+        <select class="form-control">
+
+          @foreach( $dates as $rows)
+          
+            <option value="dd"><a href="gg"> {{ $rows->date }} </a></option>
+         @endforeach
+          </select>
+    </div>
     <div class="row justify-content-center">
- <div class="form-group"> 
-  <input type="text" name="search" id="search" class="form-control" placeholder="search Customer Data">
- </div>
+ 
+   
             
                
                 <table class="table">
@@ -15,10 +24,10 @@
                             <th scope="col">Name</th>
                             <th scope="col">Color</th>
                             <th scope="col">Size</th>
-                            <th scope="col">count</th>
+                            <th scope="col">Number Sold</th>
                             <th scope="col">Asset Price</th>
-                            <th scope="col">price</th>
-
+                            <th scope="col">price Sold</th>
+                            <th scope="col">Total</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -26,17 +35,17 @@
                                 @foreach ($product as $item)
                                 
                                 
-                          <tr  class="maintr" data-toggle="modal" data-target="#myModal" 
+                          <tr>
                           
-                          data-id="{{ $item->id_product }}" data-name="{{ $item->name }}" data-color="{{ $item->color }}" data-size="{{ $item->size }}"
-                           data-count="{{ $item->count }}" data-price="{{ $item->price}}" data-dis="{{ $item->discount}}">
-                            <th scope="row" class="prod">{{ $item->id_product }}</th>
+
+                            <th scope="row" class="prod">{{ $item->id_sold }}</th>
                             <td class="prod">{{ $item->name }}</td>
                             <td class="prod"> <span style="background-color:{{ $item->color }}; color:white;">{{ $item->color }}</span> </td>
                             <td class="prod">{{ $item->size }}</td>
-                            <td class="prod">{{ $item->count }}</td>
-                            <td class="prod">{{ $item->discount}}</td>
-                            <td class="prod">{{ $item->price}}</td>
+                            <td class="prod">{{ $item->number_sold }}</td>
+                            <td class="prod">{{ $item->price_org}}</td>
+                            <td class="prod">{{ $item->price_sold}}</td>
+                            <td class="prod">{{ $item->total}}</td>
                           </tr>
                           @endforeach
                     
@@ -89,7 +98,7 @@
 
 
      <tr>
-        <th class="thm" scope="col">Asset</th>
+        <th class="thm" scope="col">Discount</th>
         <th  class="thm " scope="col">Price</th>
   
    </tr>
